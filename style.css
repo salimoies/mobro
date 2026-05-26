@@ -7,9 +7,13 @@
 body{
     overflow-x: hidden;
     font-family: Arial, sans-serif;
+    background-color: white;
+    line-height: 1.5;
 }
 
 
+
+/* NAVBAR */
 
 .navbar{
     direction: rtl;
@@ -20,20 +24,24 @@ body{
     width: 100%;
     padding: 15px 30px;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
 }
 
 .imgbar{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .nav-img{
-    border-radius: 80px;
+    border-radius: 50%;
     height: 50px;
     width: 50px;
     object-fit: cover;
+}
+
+.imgbartext{
+    direction: rtl;
 }
 
 .bar-text{
@@ -49,16 +57,23 @@ a{
     padding: 10px;
     margin: 5px;
     font-size: 16px;
+    transition: 0.3s;
+}
+
+a:hover{
+    opacity: 0.8;
 }
 
 .whats{
     background-color: rgb(0, 0, 0);
     color: white;
     border-radius: 10px;
-    box-shadow: 6px 6px 10px black;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.4);
 }
 
 
+
+/* HERO */
 
 .hero-banner{
     position: relative;
@@ -84,6 +99,14 @@ a{
     max-width: 500px;
 }
 
+.hero-text h1{
+    margin-bottom: 10px;
+}
+
+.hero-text p{
+    margin-bottom: 10px;
+}
+
 .button{
     text-decoration: none;
     background-color: black;
@@ -92,21 +115,26 @@ a{
     height: 50px;
     font-size: 22px;
     border: none;
-    box-shadow: 6px 6px 10px black;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
 
-.button:hover {
-    box-shadow: 2px 2px 10px black;
+.button:hover{
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
 }
+
+
+
+/* COURSES */
 
 .coursr{
     text-align: center;
     text-decoration: underline;
-    margin-top: 50px;
+    margin-top: 60px;
     margin-bottom: 40px;
 }
-
-
 
 .card{
     display: flex;
@@ -126,7 +154,7 @@ a{
     width: 100%;
     border-radius: 10px;
     display: block;
-    box-shadow: 6px 6px 10px black;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.4);
 }
 
 .cor-text{
@@ -136,15 +164,115 @@ a{
     right: 5%;
     color: rgb(0, 0, 0);
     font-size: 15px;
+    width: 90%;
+}
+
+.cor-text h1{
+    margin-bottom: 10px;
+}
+
+.cor-text h5{
+    margin-bottom: 15px;
 }
 
 
+
+/* MORE BUTTON */
+
+.more{
+    display: block;
+    width: fit-content;
+    margin: 20px auto 50px;
+    padding: 10px 70px;
+    border-radius: 8px;
+    color: rgb(0, 0, 255);
+    border: 1px solid rgb(55, 55, 230);
+}
+
+
+
+/* TEACHERS */
+
+.techer{
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.techers{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.techer1,
+.techer2{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgb(245,245,245);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.tech-text{
+    direction: rtl;
+}
+
+.tech{
+    height: 200px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+
+/* FOOTER */
+
+.Footer{
+    background-color: rgb(77, 128, 185);
+    min-height: 200px;
+    display: flex;
+    direction: rtl;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.text{
+    margin: 10px;
+    max-width: 250px;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+/* MOBILE */
 
 @media (max-width: 768px){
 
     .navbar{
         justify-content: center;
         text-align: center;
+        padding: 20px;
+    }
+
+    .imgbar{
+        flex-direction: column;
+    }
+
+    .bar-text{
+        width: 100%;
     }
 
     .hero-img{
@@ -162,6 +290,10 @@ a{
         font-size: 30px;
     }
 
+    .hero-text p{
+        font-size: 15px;
+    }
+
     .button{
         width: 180px;
         height: 45px;
@@ -170,6 +302,7 @@ a{
 
     .card{
         flex-direction: column;
+        padding: 30px 15px;
     }
 
     .english{
@@ -177,70 +310,37 @@ a{
         max-width: 320px;
     }
 
-}
+    .cor-text{
+        font-size: 14px;
+    }
 
-.more{
-    display: block;
-    width: fit-content;
-    margin: auto;
-    padding: 6px 70px;
-    border-radius: 8px;
-    color: rgb(0, 0, 255);
-    border: 1px solid rgb(55, 55, 230);    
-}
+    .more{
+        padding: 10px 40px;
+    }
 
+    .techers{
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .techer1,
+    .techer2{
+        width: 95%;
+        max-width: 400px;
+    }
 
-.techer{
-    text-align: center;
-    text-decoration: underline;
-    margin-top: 50px;
-    margin-bottom: 40px;
-}
+    .tech{
+        height: 160px;
+        width: 120px;
+    }
 
-.techers{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-    flex-wrap: wrap;
-}
+    .Footer{
+        text-align: center;
+        justify-content: center;
+    }
 
-.techer1{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    .text{
+        max-width: 100%;
+    }
 
-.techer2{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.tech-text{
-    direction: rtl;
-}
-
-
-.tech{
-    height: 200px;
-    border-radius: 20px;
-}
-
-.Footer{
-    background-color:  rgb(77, 128, 185);
-    min-height: 200px;
-    display: flex;
-    direction: rtl;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.text{
-    margin: 10px;
-}
-
-.col{
-    display: flex;
-    flex-direction: column;
 }
