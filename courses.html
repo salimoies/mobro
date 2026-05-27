@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="course-card">
+    <div class="course-main-info">
+        <div class="course-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40" height="40" fill="#3776AB">
+                <path d="M439.4 362.3c-1.1-12.7-11.5-22.4-24.3-22.4H352c-13.3 0-24-10.7-24-24v-63.1c0-13.3 10.7-24 24-24h63.1c12.7 0 23.2-9.6 24.3-22.4 1.3-15.1-10.2-28.1-25.3-28.1H352c-26.5 0-48 21.5-48 48v63.1c0 26.5 21.5 48 48 48h63.1c15.1 .1 26.6-12.9 25.3-28.1zM216 112c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v32c0 13.3 10.7 24 24 24h168c13.3 0 24-10.7 24-24v-32zm208 0c0-13.3-10.7-24-24-24H232c-13.3 0-24 10.7-24 24v32c0 13.3 10.7 24 24 24h168c13.3 0 24-10.7 24-24v-32zM192 256c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v32c0 13.3 10.7 24 24 24h144c13.3 0 24-10.7 24-24v-32zm0 144c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v32c0 13.3 10.7 24 24 24h144c13.3 0 24-10.7 24-24v-32z"/>
+            </svg>
+        </div>
+        <div class="course-text">
+            <h3 class="course-name">دورة البرمجة بلغة Python - المستوى الأساسي</h3>
+            <p class="course-brief">تعلم أساسيات البرمجة من الصفر وحتى بناء تطبيقاتك الأولى باستخدام لغة بايثون الشيقة.</p>
+        </div>
+    </div>
+    
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+        <span>إظهار جميع التفاصيل</span>
+        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="12" height="12" fill="currentColor">
+            <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 301.3 83.4 160.7c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
+        </svg>
+    </button>
+
+    <div class="course-details-dropdown">
+        <div class="dropdown-content">
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="switchTab(event, 'tab-info')">تفاصيل</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-schedule')">المواعيد</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-price')">الاشتراك</button>
+            </div>
+
+            <div class="tab-content active" id="tab-info">
+                <div class="info-item">
+                    <span class="info-icon">👤</span>
+                    <div><strong>اسم الأستاذ:</strong> م. أحمد خالد</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📊</span>
+                    <div><strong>مستويات الكورس:</strong> مبتدئ &larr; متوسط</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📖</span>
+                    <div><strong>وصف الكورس:</strong> دورة شاملة لتعلم البرمجة بلغة Python من الصفر حتى الاحتراف، تغطي المفاهيم الأساسية، البرمجة كائنية التوجه، وتطبيقات عملية.</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-schedule">
+                <div class="info-item">
+                    <span class="info-icon">📅</span>
+                    <div><strong>الأيام:</strong> كل يوم أحد وأربعاء</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🕒</span>
+                    <div><strong>موعد الكورس:</strong> من 6:00 مساءً إلى 8:00 مساءً</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-price">
+                <div class="info-item">
+                    <span class="info-icon">💵</span>
+                    <div><strong>سعر الكورس شهرياً:</strong> <span class="price-tag">150 ريال سعودي</span></div>
+                </div>
+                <button class="enroll-btn">اشترك الآن في الدورة</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleDetails(button) {
+    const card = button.closest('.course-card');
+    const dropdown = card.querySelector('.course-details-dropdown');
+    const icon = button.querySelector('.arrow-icon');
+    const textSpan = button.querySelector('span');
+    
+    const isOpen = card.classList.contains('active-card');
+    
+    if (!isOpen) {
+        card.classList.add('active-card');
+        dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+        icon.style.transform = 'rotate(180deg)';
+        textSpan.innerText = 'إخفاء التفاصيل';
+    } else {
+        card.classList.remove('active-card');
+        dropdown.style.maxHeight = null;
+        icon.style.transform = 'rotate(0deg)';
+        textSpan.innerText = 'إظهار جميع التفاصيل';
+    }
+}
+
+function switchTab(event, tabId) {
+    event.stopPropagation();
+    const dropdownContent = event.target.closest('.dropdown-content');
+    
+    dropdownContent.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    dropdownContent.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    event.target.classList.add('active');
+    dropdownContent.querySelector(`#${tabId}`).classList.add('active');
+    
+    const dropdown = dropdownContent.closest('.course-details-dropdown');
+    dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+}
+</script>
+</body>
+</html>
